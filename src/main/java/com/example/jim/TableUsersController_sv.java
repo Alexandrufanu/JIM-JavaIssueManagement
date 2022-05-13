@@ -1,0 +1,172 @@
+package com.example.jim;
+import java.sql.*;
+
+
+// CREATE SCHEMA `jim` ;
+
+//CREATE TABLE `jim`.`companies` (
+//        `name` VARCHAR(80) NOT NULL,
+//        `maxusersallowed` INT NOT NULL,
+//        PRIMARY KEY (`name`));
+
+//CREATE TABLE `jim`.`usersdata` (
+
+//        `isadmin` BIT(1) NOT NULL DEFAULT 0,
+//        `canedit` BIT(1) NOT NULL DEFAULT 0,
+//        `password` VARCHAR(200) NOT NULL,
+//        `company` VARCHAR(80) NOT NULL,
+//        PRIMARY KEY (`username`),
+//        INDEX `company_idx` (`company` ASC) VISIBLE,
+//        CONSTRAINT `company`
+//        FOREIGN KEY (`company`)
+//        REFERENCES `jim`.`companies` (`name`)
+//        ON DELETE NO ACTION
+//        ON UPDATE NO ACTION);
+
+//CREATE TABLE `jim`.`issues` (
+//        `summary` VARCHAR(150) NOT NULL,
+//        `type` VARCHAR(10) NOT NULL,
+//        `inrelease` VARCHAR(45) NOT NULL,
+//        `description` VARCHAR(1000) NOT NULL,
+//        `companyname` VARCHAR(80) NOT NULL,
+//        PRIMARY KEY (`summary`),
+//        INDEX (`companyname` ASC) VISIBLE,
+//        CONSTRAINT `company_name`
+//        FOREIGN KEY (`companyname`)
+//        REFERENCES `jim`.`companies` (`name`)
+//        ON DELETE NO ACTION
+//        ON UPDATE NO ACTION);
+
+
+
+/*
+CREATE SCHEMA `jim2` ;
+
+
+
+*/
+
+
+
+public class TableUsersController_sv {
+
+//    private static Connection con;
+    private static Connection connect() throws ClassNotFoundException, SQLException {
+        Class.forName("com.mysql.cj.jdbc.Driver");
+
+        return DriverManager.getConnection(
+                "jdbc:mysql://localhost:3306/jim","root","12345678");
+
+    }
+
+    public static void select(String item){
+
+        try{
+            Connection con = connect();
+
+            Statement stmt=con.createStatement();
+            ResultSet rs=stmt.executeQuery("select "+item+" from usersdata");
+
+            while(rs.next())
+                System.out.println(rs.getString(1)+"  "+rs.getString(2));//+"  "+rs.getString(3));
+
+            con.close();
+        }catch(Exception e){ System.out.println(e);}
+
+    }
+
+
+
+    public static void insert(String username, String firstname, String lastname, String email, String company, String password){
+
+        try{
+            Connection con=connect();
+
+            Statement stmt=con.createStatement();
+
+            int rs=stmt.executeUpdate("INSERT INTO `jim`.`usersdata` (`username`, `firstname`, `lastname`, `email`, `company`, `passoword`)" +
+                    " VALUES ('"+username+"','"+firstname +"','"+ lastname +"','"+ email+"','"+ company+"','"+password+"')");
+
+            con.close();
+        }catch(Exception e){ System.out.println(e);}
+    }
+
+    public static boolean checkUniqueUsername(String username) throws SQLException {
+
+        try{
+            Connection con = connect();
+
+            Statement stmt=con.createStatement();
+            ResultSet rs=stmt.executeQuery("select * from usersdata where username = "+ "'"+ username +"'");
+
+            if(rs.next())
+                return false;
+
+            con.close();
+            return true;
+        }catch(Exception ignored){ }
+
+        return true;
+
+    }
+
+
+
+
+
+
+    public static boolean loginAttempt (String username, String content)
+    {
+        try{
+            int result =-1;
+            Connection con = connect();
+
+            Statement stmt=con.createStatement();
+//            ResultSet rs=stmt.executeQuery("select * from usersdata where username = "+ "'"+ username +"'");
+
+            ResultSet rs=stmt.executeQuery("SELECT EXISTS (" +
+                    "SELECT * FROM usersdata WHERE username = '"+username+"' AND password = '"+content+"')");
+
+            if(rs.next())
+                result = rs.getInt(1);
+
+            con.close();
+
+            System.out.println(result);
+
+            return result == 1;
+
+        }catch(Exception e){ System.out.println(e);}
+
+        return false;
+    }
+
+
+
+
+    public static void main(String[] args){
+
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

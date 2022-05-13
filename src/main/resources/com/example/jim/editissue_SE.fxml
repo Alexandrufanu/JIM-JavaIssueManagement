@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="612.0" prefWidth="785.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.jim.EditissueController">
+  <columnConstraints>
+    <ColumnConstraints />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="160.0" minWidth="10.0" prefWidth="155.40003967285156" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="629.5999603271484" />
+  </columnConstraints>
+  <rowConstraints>
+      <RowConstraints />
+      <RowConstraints maxHeight="72.59998779296875" minHeight="10.0" prefHeight="56.19998264312744" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="81.59999389648438" minHeight="10.0" prefHeight="81.59999389648438" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="214.2000259399414" minHeight="10.0" prefHeight="93.00000610351564" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="548.0000122070312" minHeight="10.0" prefHeight="85.79999389648441" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="548.0000122070312" minHeight="10.0" prefHeight="87.60002441406249" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="548.0000122070312" minHeight="10.0" prefHeight="178.40001220703124" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="548.0000122070312" minHeight="10.0" prefHeight="66.39998779296872" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="548.0000122070312" minHeight="10.0" prefHeight="80.40003662109382" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="548.0000122070312" minHeight="10.0" prefHeight="80.40003662109382" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+         <children>
+            <Text layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Change Status">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+         <children>
+            <Text layoutX="55.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Summary:" />
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+         <children>
+            <Text layoutX="58.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Project:" />
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+         <children>
+            <Text layoutX="64.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Type:" />
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="4">
+         <children>
+            <Text layoutX="154.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="1.0" />
+            <Text layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="                                          Uneditable Details" />
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+         <children>
+            <Text layoutX="33.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Found in release:" />
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
+         <children>
+            <Text layoutX="41.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Full Description" />
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="5">
+         <children>
+            <Text layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="                                          Uneditable Details" />
+         </children>
+      </AnchorPane>
+      <Button mnemonicParsing="false" onAction="#mainmenu" text="Go Back" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="7">
+         <children>
+            <Text layoutX="46.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Importance:" />
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
+         <children>
+            <Text layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="                                          Uneditable Details" />
+         </children>
+      </AnchorPane>
+      <Label fx:id="errortext" textFill="RED" GridPane.columnIndex="2" GridPane.rowIndex="8">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <ChoiceBox prefWidth="150.0" GridPane.columnIndex="2" GridPane.rowIndex="8" />
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="                                          Uneditable Details" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="                                          Uneditable Details" wrappingWidth="238.93663024902344" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="                                          Uneditable Details" wrappingWidth="246.13670349121094" GridPane.columnIndex="2" GridPane.rowIndex="7" />
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="8">
+         <children>
+            <Text layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="              New Status " />
+         </children>
+      </AnchorPane>
+      <Button fx:id="submit" mnemonicParsing="false" onAction="#submit" prefHeight="26.0" prefWidth="150.0" text="OK" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+   </children>
+</GridPane>
